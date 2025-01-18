@@ -1,0 +1,31 @@
+{
+	"schemaVersion": 1,
+	"id": "bulkcompost",
+	"version": "${version}",
+	"name": "Bulk Compost",
+	"description": "Compost multiple items at the same time",
+	"authors": [
+		"VendoAU"
+	],
+	"contact": {
+		"homepage": "https://modrinth.com/mod/bulk-compost",
+		"sources": "https://github.com/VendoAU/bulk-compost",
+		"issues": "https://github.com/VendoAU/bulk-compost/issues"
+	},
+	"license": "MIT",
+	"icon": "assets/bulkcompost/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.vendoau.bulkcompost.BulkCompost"
+		]
+	},
+	"mixins": [
+		"bulkcompost.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.9",
+		"minecraft": ">=1.21.3",
+		"java": ">=21"
+	}
+}
