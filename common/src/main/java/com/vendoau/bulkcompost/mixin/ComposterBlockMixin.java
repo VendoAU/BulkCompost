@@ -34,13 +34,15 @@ public abstract class ComposterBlockMixin {
     private void useItemOn(ItemStack itemStack, BlockState blockState, Level level, BlockPos blockPos, Player player,
                            InteractionHand interactionHand, BlockHitResult blockHitResult,
                            CallbackInfoReturnable<InteractionResult> cir) {
-        BlockState blockState2 = blockState;
+        boolean levelIncreased = false;
         while (blockState.getValue(ComposterBlock.LEVEL) < 7 && itemStack.getCount() > 0) {
-            blockState2 = addItem(player, blockState, level, blockPos, itemStack);
+            final BlockState blockState2 = addItem(player, blockState, level, blockPos, itemStack);
             player.awardStat(Stats.ITEM_USED.get(itemStack.getItem()));
             itemStack.consume(1, player);
+            if (blockState != blockState2) levelIncreased = true;
+            blockState = blockState2;
         }
-        boolean levelIncreased = blockState != blockState2;
+
         level.levelEvent(1500, blockPos, levelIncreased ? 1 : 0);
         cir.setReturnValue(InteractionResult.SUCCESS);
     }

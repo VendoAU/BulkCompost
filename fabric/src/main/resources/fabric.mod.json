@@ -1,19 +1,19 @@
 {
 	"schemaVersion": 1,
-	"id": "bulkcompost",
+	"id": "${mod_id}",
 	"version": "${version}",
-	"name": "Bulk Compost",
-	"description": "Compost multiple items at the same time",
+	"name": "${mod_name}",
+	"description": "${description}",
 	"authors": [
-		"VendoAU"
+		"${mod_author}"
 	],
 	"contact": {
 		"homepage": "https://modrinth.com/mod/bulk-compost",
 		"sources": "https://github.com/VendoAU/bulk-compost",
 		"issues": "https://github.com/VendoAU/bulk-compost/issues"
 	},
-	"license": "MIT",
-	"icon": "assets/bulkcompost/icon.png",
+	"license": "${license}",
+	"icon": "${mod_id}.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
@@ -21,11 +21,12 @@
 		]
 	},
 	"mixins": [
-		"bulkcompost.mixins.json"
+		"${mod_id}.mixins.json",
+		"${mod_id}.fabric.mixins.json"
 	],
 	"depends": {
-		"fabricloader": ">=0.16.9",
-		"minecraft": ">=1.21.3",
-		"java": ">=21"
+		"fabricloader": ">=${fabric_loader_version}",
+		"minecraft": "${minecraft_version}",
+		"java": ">=${java_version}"
 	}
 }
