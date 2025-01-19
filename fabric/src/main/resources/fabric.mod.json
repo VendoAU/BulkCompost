@@ -9,8 +9,8 @@
 	],
 	"contact": {
 		"homepage": "https://modrinth.com/mod/bulk-compost",
-		"sources": "https://github.com/VendoAU/bulk-compost",
-		"issues": "https://github.com/VendoAU/bulk-compost/issues"
+		"sources": "https://github.com/VendoAU/BulkCompost",
+		"issues": "https://github.com/VendoAU/BulkCompost/issues"
 	},
 	"license": "${license}",
 	"icon": "${mod_id}.png",
