@@ -3,7 +3,7 @@ package com.vendoau.bulkcompost.mixin;
 import net.minecraft.core.BlockPos;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -33,7 +33,7 @@ public abstract class ComposterBlockMixin {
     @Inject(method = "useItemOn", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/ComposterBlock;addItem(Lnet/minecraft/world/entity/Entity;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/LevelAccessor;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/item/ItemStack;)Lnet/minecraft/world/level/block/state/BlockState;"), cancellable = true)
     private void useItemOn(ItemStack itemStack, BlockState blockState, Level level, BlockPos blockPos, Player player,
                            InteractionHand interactionHand, BlockHitResult blockHitResult,
-                           CallbackInfoReturnable<InteractionResult> cir) {
+                           CallbackInfoReturnable<ItemInteractionResult> cir) {
         boolean levelIncreased = false;
         while (blockState.getValue(ComposterBlock.LEVEL) < 7 && itemStack.getCount() > 0) {
             final BlockState blockState2 = addItem(player, blockState, level, blockPos, itemStack);
@@ -44,6 +44,6 @@ public abstract class ComposterBlockMixin {
         }
 
         level.levelEvent(1500, blockPos, levelIncreased ? 1 : 0);
-        cir.setReturnValue(InteractionResult.SUCCESS);
+        cir.setReturnValue(ItemInteractionResult.SUCCESS);
     }
 }
